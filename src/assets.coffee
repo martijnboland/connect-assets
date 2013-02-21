@@ -24,7 +24,7 @@ module.exports = exports = (options = {}) ->
   options.buildDir ?= 'builtAssets'
   options.buildFilenamer ?= md5Filenamer
   options.buildsExpire ?= false
-  options.detectChanges ?= true
+  options.detectChanges ?= process.env.NODE_ENV is not 'production'
   options.minifyBuilds ?= true
   options.pathsOnly ?= false
   jsCompilers = _.extend jsCompilers, options.jsCompilers || {}
